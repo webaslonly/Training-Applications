@@ -3,6 +3,7 @@ import { HiMiniMagnifyingGlass } from 'react-icons/hi2'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select'
 import { FaRegHeart, FaRegMoon } from 'react-icons/fa'
 import { Button } from '../ui/button'
+import { ModeToggle } from './mode.toggle'
 
 function Navbar() {
   return (
@@ -22,7 +23,7 @@ function Navbar() {
         <div className='flex gap-5'>
             <Button variant={'outline'}><HiMiniMagnifyingGlass /></Button>
             <Button variant={'outline'}><FaRegHeart /></Button>
-            <Button variant={'outline'}><FaRegMoon /></Button>
+            <ModeToggle/>
             <Select>
                 <SelectTrigger className="w-[180px]">
                 <SelectValue placeholder="Theme" />
