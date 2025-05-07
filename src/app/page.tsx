@@ -1,7 +1,10 @@
+"use client"
+
 import Navbar from '@/components/shared/navbar'
 import React from 'react'
 
-function AppPage() {
+
+function Page() {
   return (
     <div>
       <Navbar/>
@@ -9,4 +12,4 @@ function AppPage() {
   )
 }
 
-export default AppPage
+export default Page
