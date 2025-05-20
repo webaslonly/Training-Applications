@@ -22,7 +22,7 @@ function Navbar() {
         </Link>
 
         <ul className='flex gap-5 text-[16px] font-semibold text-center pr-[90px]'>
-            <Button variant={'li'}>Home</Button>
+            <Link href={'/'}><Button variant={'li'}>Home</Button></Link>
             <Button variant={'li'}>About</Button>
             <Button variant={'li'}>Courses</Button>
         </ul>

@@ -2,13 +2,11 @@
 
 import Navbar from "@/components/shared/navbar";
 import Form from "next/form";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
-import "./login.css";
+import "./register.css";
 import Link from "next/link";
 
-function Login() {
+function Register() {
   return (
     <>
       <div>
@@ -16,12 +14,12 @@ function Login() {
       </div>
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md pt-[190px]">
-        <h2 className="text-xl font-bold">Login</h2>
+        <h2 className="text-xl font-bold">Register</h2>
         <p className="text-muted-foreground">
-          Don't have an account?{" "}
-          <Link href={"/register"}>
+          Have an account?{" "}
+          <Link href={"/login"}>
             <span className="text-blue-500 cursor-pointer hover:underline">
-              Sign up
+              Sign in
             </span>
           </Link>
         </p>
@@ -53,19 +51,12 @@ function Login() {
           <br />
         </Form>
 
-        <div className="text-sm text-right">
-          <Link href={"/forgot-password"}>
-            <span className="text-blue-500 cursor-pointer hover:underline ">
-              Forgot Password?
-            </span>
-          </Link>
-        </div>
         <div className="pt-1">
-          <button className="btn">Log In</button>
+          <button className="btn">Register</button>
         </div>
       </div>
     </>
   );
 }
 
-export default Login;
+export default Register;
