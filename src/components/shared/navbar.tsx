@@ -11,44 +11,46 @@ import Link from 'next/link'
 
 
 function Navbar() {
-  return (
-    <>
-    <header className='flex justify-between pt-[27px] px-[90px] text-center items-center fixed top-0 w-full bg-background'>
-        
-        <Link href={'/'}>
-            <div className="logo">
-                <h1 className='text-[37px] font-semibold text-center'>{('</LOGO>')}</h1>
-            </div>
-        </Link>
+    return (
+        <>
+            <header className='fixed inset-0 z-40 h-20 bg-background/70 backdrop-blur-xl'>
 
-        <ul className='flex gap-5 text-[16px] font-semibold text-center pr-[90px]'>
-            <Link href={'/'}><Button variant={'li'}>Home</Button></Link>
-            <Button variant={'li'}>About</Button>
-            <Button variant={'li'}>Courses</Button>
-        </ul>
+                <div className='container mx-auto flex h-full max-w-8xl items-center justify-between border-b'>
+                    <Link href={'/'}>
+                        <div className="logo">
+                            <h1 className='text-[37px] font-semibold text-center'>{('</LOGO>')}</h1>
+                        </div>
+                    </Link>
 
-        <div className='flex gap-5'>
-            <Button variant={'outline'}><HiMiniMagnifyingGlass /></Button>
-            <Button variant={'outline'}><FaRegHeart /></Button>
-            <ModeToggle/>
-            <Select>
-                <SelectTrigger className="w-[100px] py-5">
-                <SelectValue placeholder="Lang" />
-                </SelectTrigger>
-                <SelectContent>
-                <SelectItem value="light">EN</SelectItem>
-                <SelectItem value="dark">UZ</SelectItem>
-                <SelectItem value="system">RU</SelectItem>
-                </SelectContent>
-            </Select>
-            <Link href={'/login' }>
-                <Button variant={'log'} className='rounded-full font-bold'>Log In</Button>
-            </Link>
-        </div>
+                    <ul className='flex gap-5 text-[16px] font-semibold text-center pr-[90px]'>
+                        <Link href={'/'}><Button variant={'li'}>Home</Button></Link>
+                        <Button variant={'li'}>About</Button>
+                        <Button variant={'li'}>Courses</Button>
+                    </ul>
 
-    </header>
-    </>
-  )
+                    <div className='flex gap-5'>
+                        <Button variant={'outline'}><HiMiniMagnifyingGlass /></Button>
+                        <Button variant={'outline'}><FaRegHeart /></Button>
+                        <ModeToggle />
+                        <Select>
+                            <SelectTrigger className="w-[100px] py-5">
+                                <SelectValue placeholder="Lang" />
+                            </SelectTrigger>
+                            <SelectContent>
+                                <SelectItem value="light">EN</SelectItem>
+                                <SelectItem value="dark">UZ</SelectItem>
+                                <SelectItem value="system">RU</SelectItem>
+                            </SelectContent>
+                        </Select>
+                        <Link href={'/login'}>
+                            <Button variant={'log'} className='rounded-full font-bold'>Log In</Button>
+                        </Link>
+                    </div>
+                </div>
+
+            </header>
+        </>
+    )
 }
 
 export default Navbar
