@@ -28,12 +28,45 @@ function Register() {
           <Separator />
         </div>
 
+        <Form action="/search" className="flex justify-between" >
+          <div>
+            <label className="block text-sm font-medium " >
+              Your Name
+            </label>
+            <br />
+            <input
+              placeholder="Your Name"
+              type="text"
+              name="name"
+              className="appearance-none block w-full  px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm  "
+            />
+          </div>
+
+          <div className="ml-16">
+            <label className="block text-sm font-medium " >
+              Your Last Name
+            </label>
+            <br />
+            <input
+              placeholder="Your Last Name"
+              type="text"
+              name="name"
+              className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm  "
+            />
+          </div>
+
+          <br />
+        </Form>
+        <br />
+
         <Form action="/search">
           <label className="block text-sm font-medium " htmlFor="email">
             Email
           </label>
           <br />
           <input
+            placeholder="email@gmail.com"
+            type="email"
             name="email"
             className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm  "
           />
@@ -45,6 +78,8 @@ function Register() {
           </label>
           <br />
           <input
+            placeholder="*****"
+            type="password"
             name="email"
             className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm  "
           />

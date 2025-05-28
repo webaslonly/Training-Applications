@@ -36,6 +36,8 @@ function Login() {
           </label>
           <br />
           <input
+            placeholder="email@gmail.com"
+            type="email"
             name="email"
             className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm  "
           />
@@ -47,22 +49,23 @@ function Login() {
           </label>
           <br />
           <input
+            placeholder="*****"
+            type="password"
             name="email"
             className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm  "
           />
           <br />
         </Form>
 
-        <div className="text-sm text-right">
+        <div className="text-sm text-right pb-1">
           <Link href={"/forgot-password"}>
             <span className="text-blue-500 cursor-pointer hover:underline ">
               Forgot Password?
             </span>
           </Link>
         </div>
-        <div className="pt-1">
+        
           <button className="btn">Log In</button>
-        </div>
       </div>
     </>
   );
