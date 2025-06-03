@@ -2,9 +2,9 @@
 
 import React from 'react'
 import { HiMiniMagnifyingGlass } from 'react-icons/hi2'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { FaRegHeart, FaRegMoon } from 'react-icons/fa'
-import { Button } from '../ui/button'
+import { Button } from '@/components/ui/button'
 import { ModeToggle } from './mode.toggle'
 import Link from 'next/link'
 
@@ -23,8 +23,10 @@ function Navbar() {
                     </Link>
 
                     <ul className='flex gap-5 text-[16px] font-semibold text-center pr-[90px]'>
-                        <Link href={'/'}><Button variant={'li'}>Home</Button></Link>
-                        <Button variant={'li'}>About</Button>
+                        <Link href={'/'}><Button variant={'li'}>Home</Button></Link>                        
+                        <Link href={'/page/about'}>
+                            <Button variant={'li'}>About</Button>
+                        </Link>
                         <Button variant={'li'}>Courses</Button>
                     </ul>
 
@@ -42,7 +44,7 @@ function Navbar() {
                                 <SelectItem value="system">RU</SelectItem>
                             </SelectContent>
                         </Select>
-                        <Link href={'/login'}>
+                        <Link href={'login'}>
                             <Button variant={'log'} className='rounded-full font-bold'>Log In</Button>
                         </Link>
                     </div>
