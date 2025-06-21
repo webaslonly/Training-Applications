@@ -24,10 +24,10 @@ function Navbar() {
 
                     <ul className='flex gap-5 text-[16px] font-semibold text-center pr-[90px]'>
                         <Link href={'/'}><Button variant={'li'}>Home</Button></Link>                        
-                        <Link href={'/page/about'}>
+                        <Link href={'/about'}>
                             <Button variant={'li'}>About</Button>
                         </Link>
-                        <Button variant={'li'}>Courses</Button>
+                        <Button variant={'li'}>Training</Button>
                     </ul>
 
                     <div className='flex gap-5'>

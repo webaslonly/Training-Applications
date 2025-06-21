@@ -51,7 +51,10 @@ function Home() {
         </div>
       </div>
 
+      
+
       <CaruselHomePage/>
+        
     </>
   )
 }
