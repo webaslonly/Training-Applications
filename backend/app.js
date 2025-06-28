@@ -6,8 +6,9 @@ const app = express();
 
 const PORT = process.env.NEXT_PORT
 
+app.use(express.json());
+
 app.use('/api/user', require('./routes/user.route'))
-// app.use('/api/card', require('./routes/card.route'))
 
 // Connect to MongoDB
 
@@ -15,7 +16,7 @@ const connectDB = () => {
     try {
         mongoose
             .connect(process.env.NEXT_DB_URL)
-            .then(() => console.log('MongoDB connec'));
+            .then(() => console.log('MongoDB connected'));
         app.listen(PORT, () =>
             console.log(`Listen on port -- http://localhost:${PORT}`)
         );
