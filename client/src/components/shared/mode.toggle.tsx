@@ -16,7 +16,7 @@ export function ModeToggle() {
     <div>
       {openModeTogle ? (
         <Button 
-         className="h-[32px] w-[32px]"
+         className="border bg-background shadow-xs hover:bg-accent text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50"
          onClick={() => {
           setOpenModeTogle(false);
           setTheme('light')
@@ -26,13 +26,13 @@ export function ModeToggle() {
         </Button>
       ) : (
         <Button
-        className="h-[32px] w-[32px]"
+        className=" border bg-background shadow-xs hover:bg-accent text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50"
         onClick={() => {
          setOpenModeTogle(true);
          setTheme('system')
         }}
          >
-          <Moon className=" h-[1.2rem] w-[1.2rem]  transition-all " />
+          <Moon className=" h-[1.2rem] w-[1.2rem] transition-all " />
         </Button>
       )}
     </div>

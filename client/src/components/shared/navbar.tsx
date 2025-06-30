@@ -44,9 +44,8 @@ function Navbar() {
                         </div>
                     </Link>
 
-                    <ul className='flex gap-5 text-[16px] font-semibold text-center pr-[90px]'>
+                    <ul className='flex gap-3 text-[16px] font-semibold text-center mr-[200px]'>
                         <Link href={'/'}><Button variant={'li'} >Home</Button></Link>
-                        <Link href={'/about'}><Button variant={'li'}>About</Button></Link>
                         <li><Button variant={'li'} onClick={() => scrollToSection("training")}>Training</Button></li>
                     </ul>
 
@@ -64,7 +63,7 @@ function Navbar() {
                                 <SelectItem value="system">RU</SelectItem>
                             </SelectContent>
                         </Select>
-                        <Link href={'login'}>
+                        <Link href={'/auth/login'}>
                             <Button variant={'log'} className='rounded-full font-bold'>Log In</Button>
                         </Link>
                     </div>

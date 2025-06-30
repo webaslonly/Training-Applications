@@ -15,8 +15,8 @@ function Register() {
       </div>
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md pt-[190px]">
-        <h2 className="text-xl font-bold">Register</h2>
-        <Link href={"/login"}>
+        <h2 className="text-xl font-bold">Forgot Password</h2>
+        <Link href={"/auth/login"}>
           <p className="text-muted-foreground flex">
             <span className="mt-[5px]"><IoIosArrowBack /></span>Back
           </p>

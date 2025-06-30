@@ -2,8 +2,6 @@
 
 import Navbar from "@/components/shared/navbar";
 import Form from "next/form";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import "./login.css";
 import Link from "next/link";
@@ -19,7 +17,7 @@ function Login() {
         <h2 className="text-xl font-bold">Login</h2>
         <p className="text-muted-foreground">
           Don't have an account?{" "}
-          <Link href={"/register"}>
+          <Link href={"/auth/register"}>
             <span className="text-blue-500 cursor-pointer hover:underline">
               Sign up
             </span>
@@ -58,14 +56,14 @@ function Login() {
         </Form>
 
         <div className="text-sm text-right pb-1">
-          <Link href={"/forgot-password"}>
+          <Link href={"/auth/forgot-password"}>
             <span className="text-blue-500 cursor-pointer hover:underline ">
               Forgot Password?
             </span>
           </Link>
         </div>
         
-          <button className="btn">Log In</button>
+        <button className="btn">Log In</button>
       </div>
     </>
   );

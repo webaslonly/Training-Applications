@@ -17,7 +17,7 @@ function Register() {
         <h2 className="text-xl font-bold">Register</h2>
         <p className="text-muted-foreground">
           Have an account?{" "}
-          <Link href={"/login"}>
+          <Link href={"/auth/login"}>
             <span className="text-blue-500 cursor-pointer hover:underline">
               Sign in
             </span>
