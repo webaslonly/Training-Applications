@@ -2,10 +2,16 @@ import Image from "next/image"
 import home_png from '@/components/images/2.png'
 import { Button } from "@/components/ui/button"
 import CaruselHomePage from "./CaruselHomePage"
+import { useState } from "react";
 
 
 function Home() {
+
+  const [isAuth, setIsAuth] = useState(false);
+
   return (
+
+
     <>
       {/* Home page 1 */}
       <div className='container mx-auto mt-8 grid min-h-[80vh] max-w-6xl grid-cols-2 gap-8 max-md:grid-cols-1 max-md:pt-16 max-sm:text-center pt-24'>
@@ -38,6 +44,8 @@ function Home() {
 
       {/* Home page 2 */}
 
+
+
       <div className='container mx-auto max-w-6xl py-12 max-sm:text-center'>
         <div className='flex items-center justify-end max-md:flex-col max-md:items-start '>
           <div className='flex flex-col space-y-1 text-end '>
@@ -47,10 +55,17 @@ function Home() {
         </div>
       </div>
 
-      
 
-      <CaruselHomePage/>
-        
+
+      {isAuth && (
+        <div>
+          <CaruselHomePage />
+        </div>
+      )}
+
+
+
+
     </>
   )
 }

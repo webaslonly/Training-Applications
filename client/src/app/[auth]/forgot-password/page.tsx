@@ -6,8 +6,22 @@ import { Separator } from "@/components/ui/separator";
 import "./forgot.css";
 import Link from "next/link";
 import { IoIosArrowBack } from "react-icons/io";
+import React, { useState } from "react";
 
 function Register() {
+  const [email, setEmail] = useState("");
+  const [error, setError] = useState("");
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) {
+      setError("Email is required");
+      return;
+    }
+    setError("");
+    // handle forgot password logic here
+  };
+
   return (
     <>
       <div>
@@ -26,23 +40,25 @@ function Register() {
           <Separator />
         </div>
 
-        <Form action="/search">
+        <Form onSubmit={handleSubmit} action="#">
           <label className="block text-sm font-medium " htmlFor="email">
             Email
           </label>
           <br />
           <input
-            placeholder="email@gmail.com"
+            placeholder="mail@example.com"
             type="email"
             name="email"
-            className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm  "
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+            className={`appearance-none block w-full px-3 py-2 border ${error ? 'border-red-500' : 'border-gray-300'} rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm`}
           />
+          {error && <span className="text-red-500 text-xs">{error}</span>}
           <br />
+          <div className="pt-1">
+            <button className="btn" type="submit">Send</button>
+          </div>
         </Form>
-
-        <div className="pt-1">
-          <button className="btn">Send</button>
-        </div>
       </div>
     </>
   );

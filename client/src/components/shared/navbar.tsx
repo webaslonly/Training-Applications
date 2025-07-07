@@ -7,6 +7,8 @@ import { FaRegHeart, FaRegMoon } from 'react-icons/fa'
 import { Button } from '@/components/ui/button'
 import { ModeToggle } from './mode.toggle'
 import Link from 'next/link'
+import { Avatar, AvatarFallback, AvatarImage } from '@radix-ui/react-avatar'
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@radix-ui/react-dropdown-menu'
 
 
 
@@ -17,19 +19,21 @@ function Navbar() {
 
     useEffect(() => {
         const handleScroll = () => {
-          setIsScrolled(window.scrollY > 0);
+            setIsScrolled(window.scrollY > 0);
         };
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
-      }, []);
-    
-      const scrollToSection = (sectionId: string) => {
+    }, []);
+
+    const scrollToSection = (sectionId: string) => {
         const element = document.getElementById(sectionId);
         if (element) {
-          element.scrollIntoView({ behavior: "smooth", block: "start" });
-          
+            element.scrollIntoView({ behavior: "smooth", block: "start" });
+
         }
-      };
+    };
+
+    const [isAuth, setIsAuth] = useState(false);
 
 
     return (
@@ -63,13 +67,37 @@ function Navbar() {
                                 <SelectItem value="system">RU</SelectItem>
                             </SelectContent>
                         </Select>
+
+
+
+                        {isAuth ? <DropdownMenu>
+                            <DropdownMenuTrigger asChild>
+                                <Avatar className='w-10 h-10'>
+                                    <AvatarImage className='rounded-full' src="https://github.com/shadcn.png" />
+                                    <AvatarFallback>CN</AvatarFallback>
+                                </Avatar>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent className='bg-background border shadow-lg rounded-lg p-2'>
+                                <p className='text-sm text-red-400 text-center'>
+                                    User is not activated
+                                </p>
+                                <DropdownMenuLabel className='border-b'>
+                                    example@gmail.com
+                                </DropdownMenuLabel>
+                                <DropdownMenuSeparator />
+                                <DropdownMenuItem >Log Out</DropdownMenuItem>
+                            </DropdownMenuContent>
+                        </DropdownMenu> :
                         <Link href={'/auth/login'}>
                             <Button variant={'log'} className='rounded-full font-bold'>Log In</Button>
                         </Link>
+                        }
+
+
                     </div>
                 </div>
 
-            
+
             </header>
         </>
     )

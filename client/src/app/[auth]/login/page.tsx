@@ -5,8 +5,30 @@ import Form from "next/form";
 import { Separator } from "@/components/ui/separator";
 import "./login.css";
 import Link from "next/link";
+import React, { useState } from "react";
 
 function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState({ email: "", password: "" });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    let valid = true;
+    let newError = { email: "", password: "" };
+    if (!email) {
+      newError.email = "Email is required";
+      valid = false;
+    }
+    if (!password) {
+      newError.password = "Password is required";
+      valid = false;
+    }
+    setError(newError);
+    if (!valid) return;
+    // handle login logic here
+  };
+
   return (
     <>
       <div>
@@ -28,7 +50,7 @@ function Login() {
           <Separator />
         </div>
 
-        <Form action="/search">
+        <Form onSubmit={handleSubmit} action="#">
           <label className="block text-sm font-medium " htmlFor="email">
             Email
           </label>
@@ -37,11 +59,12 @@ function Login() {
             placeholder="email@gmail.com"
             type="email"
             name="email"
-            className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm  "
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+            className={`appearance-none block w-full px-3 py-2 border ${error.email ? 'border-red-500' : 'border-gray-300'} rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm`}
           />
+          {error.email && <span className="text-red-500 text-xs">{error.email}</span>}
           <br />
-        </Form>
-        <Form action="/search">
           <label className="block text-sm font-medium " htmlFor="password">
             Password
           </label>
@@ -49,21 +72,22 @@ function Login() {
           <input
             placeholder="*****"
             type="password"
-            name="email"
-            className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm  "
+            name="password"
+            value={password}
+            onChange={e => setPassword(e.target.value)}
+            className={`appearance-none block w-full px-3 py-2 border ${error.password ? 'border-red-500' : 'border-gray-300'} rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm`}
           />
+          {error.password && <span className="text-red-500 text-xs">{error.password}</span>}
           <br />
+          <div className="text-sm text-right pb-1">
+            <Link href={"/auth/forgot-password"}>
+              <span className="text-blue-500 cursor-pointer hover:underline ">
+                Forgot Password?
+              </span>
+            </Link>
+          </div>
+          <button className="btn" type="submit">Log In</button>
         </Form>
-
-        <div className="text-sm text-right pb-1">
-          <Link href={"/auth/forgot-password"}>
-            <span className="text-blue-500 cursor-pointer hover:underline ">
-              Forgot Password?
-            </span>
-          </Link>
-        </div>
-        
-        <button className="btn">Log In</button>
       </div>
     </>
   );
