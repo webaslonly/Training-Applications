@@ -3,6 +3,7 @@ import home_png from '@/components/images/2.png'
 import { Button } from "@/components/ui/button"
 import CaruselHomePage from "./CaruselHomePage"
 import { useState } from "react";
+import Link from "next/link";
 
 
 function Home() {
@@ -57,11 +58,16 @@ function Home() {
 
 
 
-      {isAuth && (
+      {isAuth ?
         <div>
           <CaruselHomePage />
+        </div> :
+        <div className="flex justify-center items-center ">
+          <Link href={'/auth/login'}>
+            <Button variant={'find'} className=''>Log In to start learning</Button>
+          </Link>
         </div>
-      )}
+      }
 
 
 

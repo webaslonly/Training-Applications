@@ -9,6 +9,7 @@ import { ModeToggle } from './mode.toggle'
 import Link from 'next/link'
 import { Avatar, AvatarFallback, AvatarImage } from '@radix-ui/react-avatar'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@radix-ui/react-dropdown-menu'
+import { SignedIn, SignedOut, SignInButton, SignUpButton, UserButton } from '@clerk/nextjs'
 
 
 
@@ -70,7 +71,7 @@ function Navbar() {
 
 
 
-                        {isAuth ? <DropdownMenu>
+                         {isAuth ? <DropdownMenu>
                             <DropdownMenuTrigger asChild>
                                 <Avatar className='w-10 h-10'>
                                     <AvatarImage className='rounded-full' src="https://github.com/shadcn.png" />
@@ -88,10 +89,14 @@ function Navbar() {
                                 <DropdownMenuItem >Log Out</DropdownMenuItem>
                             </DropdownMenuContent>
                         </DropdownMenu> :
-                        <Link href={'/auth/login'}>
-                            <Button variant={'log'} className='rounded-full font-bold'>Log In</Button>
-                        </Link>
-                        }
+                        
+                            <Link href={'/auth/login'}>
+                                <Button variant={'log'} className='rounded-full font-bold'>Log In</Button>
+                            </Link>
+                        
+                        } 
+
+                        
 
 
                     </div>

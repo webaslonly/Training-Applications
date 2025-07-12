@@ -7,6 +7,8 @@ import "./login.css";
 import Link from "next/link";
 import React, { useState } from "react";
 
+
+
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -28,7 +30,6 @@ function Login() {
     if (!valid) return;
     // handle login logic here
   };
-
   return (
     <>
       <div>
@@ -93,4 +94,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Login;     

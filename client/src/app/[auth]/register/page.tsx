@@ -50,6 +50,9 @@ function Register() {
     // handle register logic here
   };
 
+  
+  
+
   return (
     <>
       <div>
