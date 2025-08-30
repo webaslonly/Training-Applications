@@ -14,11 +14,14 @@ import { Button } from '@/components/ui/button';
 import { ModeToggle } from './mode.toggle';
 import Link from 'next/link';
 import { SignInButton, SignUpButton, UserButton, useAuth } from '@clerk/nextjs';
+import { useLanguage } from '@/contexts/language-context';
+import { languageNames, type Language } from '@/lib/i18n';
 
 function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mounted, setMounted] = useState(false);
   const { isSignedIn } = useAuth();
+  const { currentLanguage, setLanguage, t } = useLanguage();
 
   useEffect(() => {
     setMounted(true);
@@ -34,6 +37,10 @@ function Navbar() {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
+  };
+
+  const handleLanguageChange = (value: string) => {
+    setLanguage(value as Language);
   };
 
   if (!mounted) {
@@ -75,34 +82,31 @@ function Navbar() {
 
           <ul className='flex gap-3 text-[16px] font-semibold text-center mr-[200px]'>
             <Link href={'/'}>
-              <Button variant={'li'}>Home</Button>
+              <Button variant={'li'}>{t('nav.home')}</Button>
             </Link>
             <li>
               <Button
                 variant={'li'}
                 onClick={() => scrollToSection('training')}
               >
-                Training
+                {t('nav.training')}
               </Button>
             </li>
           </ul>
 
           <div className='flex gap-5'>
-            <Button variant={'outline'}>
+            <Button variant={'outline'} title={t('nav.search')}>
               <HiMiniMagnifyingGlass />
             </Button>
-            <Button variant={'outline'}>
-              <FaRegHeart />
-            </Button>
             <ModeToggle />
-            <Select>
+            <Select value={currentLanguage} onValueChange={handleLanguageChange}>
               <SelectTrigger className='w-[100px] py-5'>
-                <SelectValue placeholder='Lang' />
+                <SelectValue placeholder={t('nav.language')} />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value='light'>EN</SelectItem>
-                <SelectItem value='dark'>UZ</SelectItem>
-                <SelectItem value='system'>RU</SelectItem>
+                <SelectItem value='en'>{languageNames.en}</SelectItem>
+                <SelectItem value='uz'>{languageNames.uz}</SelectItem>
+                <SelectItem value='ru'>{languageNames.ru}</SelectItem>
               </SelectContent>
             </Select>
 
@@ -121,7 +125,7 @@ function Navbar() {
               <div className='flex gap-2'>
                 <SignInButton mode='modal'>
                   <Button variant={'log'} className='rounded-full font-bold'>
-                    Log In
+                    {t('nav.logIn')}
                   </Button>
                 </SignInButton>
                 <SignUpButton mode='modal'>
@@ -129,7 +133,7 @@ function Navbar() {
                     variant={'outline'}
                     className='rounded-full font-bold'
                   >
-                    Sign Up
+                    {t('nav.signUp')}
                   </Button>
                 </SignUpButton>
               </div>

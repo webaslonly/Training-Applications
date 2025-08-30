@@ -4,7 +4,7 @@ import Navbar from "@/components/shared/navbar";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/language-context";
 
-function AdobeAfterEffectsPage() {
+function AdobePhotoshopPage() {
   const { t } = useLanguage();
 
   return (
@@ -15,8 +15,8 @@ function AdobeAfterEffectsPage() {
 
       <div className='container mx-auto mt-8 grid min-h-[80vh] max-w-6xl grid-cols-2 gap-8 max-md:grid-cols-1 max-md:pt-16 max-sm:text-center pt-24'>
         <div className=''>
-          <h1 className='font-space-grotesk text-4xl font-bold'>{t('adobeAfterEffects.title')}</h1>
-          <p className='text-gray-500'>{t('adobeAfterEffects.description')}</p>
+          <h1 className='font-space-grotesk text-4xl font-bold'>{t('adobePhotoshop.title')}</h1>
+          <p className='text-gray-500'>{t('adobePhotoshop.description')}</p>
         </div>
 
         <div className='flex justify-center mt-8'>
@@ -35,12 +35,12 @@ function AdobeAfterEffectsPage() {
       <br />
 
       <div className="mt-8">
-        <h2 className="text-2xl font-bold mb-4">{t('adobeAfterEffects.whatYouWillLearn')}</h2>
+        <h2 className="text-2xl font-bold mb-4">{t('adobePhotoshop.whatYouWillLearn')}</h2>
         <ul className="list-disc list-inside space-y-2 text-gray-600">
-          <li>Motion graphics and visual effects</li>
-          <li>Compositing and layering techniques</li>
-          <li>Animation principles and keyframing</li>
-          <li>Video editing and post-production</li>
+          <li>Photo editing and retouching</li>
+          <li>Digital art and illustration</li>
+          <li>Layer management and blending</li>
+          <li>Color correction and manipulation</li>
         </ul>
       </div>
         
@@ -49,4 +49,4 @@ function AdobeAfterEffectsPage() {
   )
 }
 
-export default AdobeAfterEffectsPage
+export default AdobePhotoshopPage
